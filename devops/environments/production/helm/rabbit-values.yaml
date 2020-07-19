@@ -1,0 +1,10 @@
+service:
+  name: rabbit
+
+ingress:
+  enabled: true
+  # Used to create an Ingress record.
+  host: localhost
+  traefik_path: /rabbitmq
+
+namespace: default
