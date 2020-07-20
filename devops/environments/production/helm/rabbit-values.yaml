@@ -1,10 +1,11 @@
 service:
   name: rabbit
 
+image: rabbitmq:3.5.0-management
+
 ingress:
   enabled: true
   # Used to create an Ingress record.
-  host: localhost
-  traefik_path: /rabbitmq
+  host: docker.labboard.ca
 
 namespace: default
