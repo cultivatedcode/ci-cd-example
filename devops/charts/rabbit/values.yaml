@@ -1,9 +1,10 @@
 service:
   name: rabbit
+  
+image: rabbitmq:3.5.0-management
 
 ingress:
   enabled: true
   host: localhost
-  traefik_path: /rabbitmq
 
 namespace: default
