@@ -13,17 +13,17 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-    - uses: kciter/aws-ecr-action@v1
-      with:
-        access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        account_id: ${{ secrets.AWS_ACCOUNT_ID }}
-        repo: example/rabbit
-        path: services/rabbit
-        dockerfile: services/rabbit/Dockerfile
-        region: us-west-2
-        tags: latest,${{ github.sha }}
-        create_repo: true
+#     - uses: kciter/aws-ecr-action@v1
+#       with:
+#         access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+#         secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#         account_id: ${{ secrets.AWS_ACCOUNT_ID }}
+#         repo: example/rabbit
+#         path: services/rabbit
+#         dockerfile: services/rabbit/Dockerfile
+#         region: us-west-2
+#         tags: latest,${{ github.sha }}
+#         create_repo: true
     - name: 'Deploy'
       uses: 'deliverybot/helm@master'
       with:
@@ -31,6 +31,6 @@ jobs:
         chart: 'devops/charts/rabbit'
         namespace: production
         release: prod-rabbit
-        value-files: './devops/environments/production/helm/rabbit-values.yml'
+        value-files: 'devops/environments/production/helm/rabbit-values.yml'
       env:
         KUBECONFIG_FILE: '${{ secrets.KUBECONFIG }}'
