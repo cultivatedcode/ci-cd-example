@@ -31,6 +31,6 @@ jobs:
         chart: 'devops/charts/rabbit'
         namespace: production
         release: prod-rabbit
-        value-files: 'devops/environments/production/helm/rabbit-values.yml'
+        values: 'devops/charts/rabbit/values.yml'
       env:
         KUBECONFIG_FILE: '${{ secrets.KUBECONFIG }}'
