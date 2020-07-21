@@ -33,6 +33,8 @@ jobs:
         release: prod-rabbit
         values: |
           appversion: v1.1
+          image:
+            tag: 3.8.5-management-alpine
         value-files: 'devops/charts/rabbit/values.yaml'
       env:
         KUBECONFIG_FILE: '${{ secrets.KUBECONFIG }}'
