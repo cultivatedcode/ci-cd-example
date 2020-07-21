@@ -1,0 +1,20 @@
+staging:
+  # Auto deploy on master.
+  auto_deploy_on: refs/heads/master
+  # Wait for our ci pipeline to pass.
+  required_contexts: ["ci"]
+  environment: staging
+
+review:
+  # Set the transient environment flag to let GitHub and Deliverybot know that
+  # this environment should be destroyed when the PR is closed.
+  transient_environment: true
+  production_environment: false
+
+  # Dynamic environment name. The environment will look like pr123.
+  environment: pr${{ pr }}
+
+production:
+  production_environment: true
+  required_contexts: ["ci", "deliverybot/promotion"]
+  environment: production
