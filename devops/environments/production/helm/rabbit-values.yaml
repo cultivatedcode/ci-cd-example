@@ -1,7 +1,7 @@
 service:
   name: rabbit
 
-image: rabbitmq:${{ deployment.version }}
+image: rabbitmq:3.5.0-management
 
 ingress:
   enabled: true
