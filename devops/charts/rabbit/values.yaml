@@ -1,10 +1,23 @@
 service:
   name: rabbit
 
-image: rabbitmq:${{ deployment.version }}
+app:
+  # app.name -- Application name: Can be consistent between tracks. (required)
+  name: rabbit
+  # app.version -- Application version: Unique tag for this release. (required)
+  version: null
+
+image:
+  # image.repository -- Docker image repository.
+  repository: rabbitmq
+  # image.tag -- Docker image tag.
+  tag: 3.5.0-management
+  pullPolicy: IfNotPresent
 
 ingress:
   enabled: true
   host: localhost
+
+appversion: 1.0
 
 namespace: default
